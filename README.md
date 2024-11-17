@@ -7,7 +7,7 @@ Banyak mata kuliah wajib Tahap Persiapan Bersama atau TPB yang dihadapi oleh Mah
 **Instalasi**
 1. Clone repository: https://github.com/YusrilMahendraa/cerdasberwawasan.git
 2. Navigasi ke Project directory: cd cerdasberwawasan
-3. ketik di terminal: npm install
+3. ketik di terminal: npm install dan npm install react-router-dom firebase
 4. run code dengan mengetik: npm run dev
 
 **Run Sementara**
