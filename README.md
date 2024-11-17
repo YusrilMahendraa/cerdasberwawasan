@@ -9,3 +9,6 @@ Banyak mata kuliah wajib Tahap Persiapan Bersama atau TPB yang dihadapi oleh Mah
 2. Navigasi ke Project directory: cd cerdasberwawasan
 3. ketik di terminal: npm install
 4. run code dengan mengetik: npm run dev
+
+**Run Sementara**
+http://localhost:5175/
