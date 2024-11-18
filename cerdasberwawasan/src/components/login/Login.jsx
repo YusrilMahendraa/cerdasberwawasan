@@ -1,39 +1,39 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './login.css';
-import firebaseApp from '../../../../services/firebase-sdk';
-import { getDatabase, ref, child, get } from 'firebase/database';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./login.css";
+import firebaseApp from "../../lib/firebase";
+import { getDatabase, ref, child, get } from "firebase/database";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleRegisterClick = () => {
-    navigate('/register');
+    navigate("/register");
   };
 
-    const handleLogin = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const db = getDatabase(firebaseApp);
-      const userRef = ref(db, 'users/' + username);
+      const userRef = ref(db, "users/" + username);
       const snapshot = await get(userRef);
       const userData = snapshot.val();
-      console.log('userData:', userData);
+      console.log("userData:", userData);
       if (userData) {
         if (userData.username === username && userData.password === password) {
-          alert('Login successful');
-          navigate('/', { state: { userData } });
+          alert("Login successful");
+          navigate("/", { state: { userData } });
         } else {
-          alert('Invalid username or password');
+          alert("Invalid username or password");
         }
       } else {
-        alert('User not found');
+        alert("User not found");
       }
     } catch (error) {
-      console.error('Error logging in:', error);
-      alert('Error logging in');
+      console.error("Error logging in:", error);
+      alert("Error logging in");
     }
   };
 
@@ -64,16 +64,22 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <button className='login-button' type="submit">Login</button>
+              <button className="login-button" type="submit">
+                Login
+              </button>
             </div>
           </form>
         </div>
         <div className="login-footer">
           <p>
-            Don't have an account?{' '}
+            Don't have an account?{" "}
             <span
               onClick={handleRegisterClick}
-              style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
+              style={{
+                cursor: "pointer",
+                color: "blue",
+                textDecoration: "underline",
+              }}
             >
               Register
             </span>
