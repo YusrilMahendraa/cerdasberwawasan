@@ -11,4 +11,4 @@ Banyak mata kuliah wajib Tahap Persiapan Bersama atau TPB yang dihadapi oleh Mah
 4. run code dengan mengetik: npm run dev
 
 **Run Sementara**
-http://localhost:5175/
+https://tugas-pawm-three.vercel.app/
